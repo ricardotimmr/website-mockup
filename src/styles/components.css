@@ -1,0 +1,392 @@
+/* Navigation bar container */
+.nav-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Logo on the left */
+.logo {
+    font-size: 30px;
+    cursor: pointer;
+    flex: 1; /* Allows flexibility in resizing */
+}
+
+/* Centered Navigation elements */
+.nav-elements {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the navigation */
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Space between each nav item */
+}
+
+.nav-elements li {
+    cursor: pointer;
+}
+
+.nav-elements li a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Burger menu on the right */
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    flex: 1;
+    align-items: flex-end; /* Align the burger to the right */
+}
+
+.burger-icon span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+.burger-icon span:nth-child(odd) {
+    width: 11%;
+}
+
+/* Show the burger icon on smaller screens */
+@media (max-width: 768px) {
+    .burger-icon {
+        display: flex; /* Show burger icon on small screens */
+    }
+
+    .nav-elements {
+        display: none; /* Hide the nav elements on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-elements.active {
+        display: flex; /* Display nav when active */
+    }
+
+    .nav-elements li {
+        margin: 10px 0;
+    }
+}
+
+/* Show the nav elements on larger screens */
+@media (min-width: 768px) {
+    .nav-elements {
+        display: flex;
+    }
+}
+
+
+
+
+
+/* Slideshow container */
+.slideshow {
+    position: relative;
+    width: 1280px; /* Set fixed width */
+    height: 700px; /* Set fixed height */
+    overflow: hidden;
+    margin: 0 auto; /* Center the slideshow horizontally */
+    border-radius: 30px;
+}
+
+/* Individual slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Scale images to cover the container */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent background repetition */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Move content to the top */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    padding-top: 50px; /* Add some padding to move the content down slightly from the top */
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Slide content */
+.slide-content {
+    text-align: left;
+    color: white;
+
+    h1 {
+        font-size: 10rem;
+        font-weight: lighter;
+        margin-bottom: 20px;
+        margin-left: 50px;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add a small shadow */
+    }
+
+    p {
+        font-size: 2rem;
+        font-weight: lighter;
+        margin-left: 60px;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Add pxa small shadow */
+    }
+
+    .book-now-button {
+        margin-left: 60px;
+        margin-top: 40px; /* Increase margin-top to move it further down */
+        padding: 15px 30px; /* Add padding for larger button */
+        background-color: rgba(255, 255, 255, 1);
+        color: black;
+        border-radius: 50px; /* Make the button rounder */
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline from button text */
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add slight shadow */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+    }
+
+    /* Button hover effect */
+    .book-now-button:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    }
+}
+
+/* Background images */
+.slide:nth-child(1) {
+    background-image: url('/public/assets/images/adam-jang-MLKrf51NV8w-unsplash.jpg');
+}
+
+.slide:nth-child(2) {
+    background-image: url('/public/assets/images/alex-talmon-UFskvng2OMU-unsplash.jpg');
+}
+
+.slide:nth-child(3) {
+    background-image: url('/public/assets/images/davide-cantelli-r0q06hjTgOc-unsplash.jpg');
+}
+
+.slide:nth-child(4) {
+    background-image: url('/public/assets/images/josh-reid-meOFNlRbHmY-unsplash.jpg');
+}
+
+.slide:nth-child(5) {
+    background-image: url('/public/assets/images/robert-lukeman-zNN6ubHmruI-unsplash.jpg');
+}
+
+.slide-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px; /* Position the controls on the bottom left */
+    display: flex;
+    padding-left: 50px;
+    padding-bottom: 40px;
+    gap: 20px; /* Add some space between the buttons */
+}
+
+.slide-control {
+    background: transparent;
+    border: 1px solid white;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.slide-control:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+
+/* Specific styles for left and right arrows */
+.slide-control.prev-slide::before {
+    content: '\2190'; /* Unicode for left arrow */
+    color: white;
+}
+
+.slide-control.next-slide::before {
+    content: '\2192'; /* Unicode for right arrow */
+    color: white;
+}
+
+/* Footer Container */
+.footer {
+    background-color: #f4f4f4; /* Background color */
+    padding: 40px 20px;
+    border-radius: 20px; /* Rounded corners */
+    margin-top: 20px; /* Some spacing around the footer */
+    max-width: 80rem;
+}
+
+/* Align the logo and the footer links horizontally */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align logo and categories at the top */
+    flex-wrap: wrap; /* Handle smaller screens */
+}
+
+.footer-left {
+    margin-left: 40px;
+}
+
+.footer-left h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.footer-left p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    max-width: 200px;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    gap: 70px; /* Space between categories */
+    margin-right: 40px;
+}
+
+.footer-category h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.footer-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-category ul li {
+    margin-bottom: 8px;
+}
+
+.footer-category ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s;
+    font-size: 12px;
+}
+
+.footer-category ul li a:hover {
+    color: #000;
+}
+
+/* Horizontal Divider */
+.footer-divider {
+    width: 94%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px auto;
+}
+
+/* Copyright Section */
+.footer-copyright {
+    text-align: left;
+    font-size: 14px;
+    color: #777;
+    margin-left: 40px;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+
+/* Section container */
+.top-values {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.top-values h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.top-values p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+/* Benefits list styling */
+.benefits {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+}
+
+/* Individual benefit item */
+.benefit-item {
+    flex: 1; /* Makes each item take equal width */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Benefit hover effect */
+.benefit-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Logo at the top of each benefit item */
+.benefit-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    filter: brightness(0.3);
+}
+
+/* Title of the benefit */
+.benefit-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Description of the benefit */
+.benefit-item p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+    .benefits {
+        flex-direction: column;
+    }
+
+    .benefit-item {
+        margin-bottom: 20px;
+    }
+}

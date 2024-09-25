@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--color-white);
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: var(--m);
+  font-weight: var(--fw-regular);
+}
+
+body{
+  margin: 0 var(--xxl);
+}
+
+header {
+  padding: 0 var(--l);
+  background-color: var(--color-white);
+}
+
+footer {
+  max-width: 76.5rem;
+  margin: 0 auto;
+  background-color: var(--color-white);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-bold);
+}
+
+main {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+main>* {
+  padding: var(--m) 0;
+}
+
+
+h1 {
+  font-size: var(--xl);
+}
+
+h3 {
+  font-size: var(--m);
+}
